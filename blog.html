@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PH-Tube</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header class="flex justify-around my-12 mx-16">
+        <button onclick="home()" class="btn btn-error text-white">Back</button>
+    </header>
+    <hr class="mx-16">
+    <main>
+        <div class="text-center mb-14">
+            <h2 class="font-extrabold text-2xl">Questions !!</h2>
+        </div>
+        <div class="m-auto w-[50%]">
+            <div class="collapse collapse-arrow bg-base-200">
+                <input type="radio" name="my-accordion-2" checked="checked" />
+                <div class="collapse-title text-xl font-medium">
+                    Discuss the scope of var, let, and const
+                </div>
+                <div class="collapse-content">
+                    <p>"var" keyword can be reassigned with the same global scope of memory block. More than value cannot be declared similar variable named block scope in "let" keyword. "const" is also a block scope and it only can assign one value</p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow bg-base-200">
+                <input type="radio" name="my-accordion-2" />
+                <div class="collapse-title text-xl font-medium">
+                    Tell us the use cases of null and undefined
+                </div>
+                <div class="collapse-content">
+                    <p>null: it occurs when the variable is declared as "null" value. Therefore, later the null value can be replaced in the database if any data needs to be inserted. undefined: if the object did not have corresponding value, then it will return "undefined" result. Same case can happened with array and variable assigning time.</p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow bg-base-200">
+                <input type="radio" name="my-accordion-2" />
+                <div class="collapse-title text-xl font-medium">
+                    What do you mean by REST API?
+                </div>
+                <div class="collapse-content">
+                    <p>The REST API allocate an URL with data resources where these data can be manipulated with certain allocated operations with CRUD system. This CRUD system represent Create, Read, Update and Delete which is similar as POST, GET, PUT and DELETE. </p>
+                </div>
+            </div>
+        </div>
+        <!-- <div id="show_answer" class="text-center">
+
+        </div> -->
+    </main>
+    <footer>
+
+    </footer>
+    <script src="javascript/tube.js"></script>
+</body>
+
+</html>
