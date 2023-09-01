@@ -12,11 +12,10 @@ const loadData = async (id) => {
     const res = await fetch("https://openapi.programming-hero.com/api/videos/category/1000")
     const data = await res.json();
     const video = data.data;
-    // console.log(video[0].thumbnail);
-    if (video.length===0){
+    if (video.length === 0) {
         displayNoVideo();
     }
-    else{
+    else {
         displayVideos(video);
     }
 }
@@ -24,10 +23,10 @@ const loadData2 = async (id) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`)
     const data = await res.json();
     const video = data.data;
-    if (video.length===0){
+    if (video.length === 0) {
         displayNoVideo();
     }
-    else{
+    else {
         displayVideos(video);
     }
 }
@@ -42,7 +41,7 @@ const displayVideos = (videos) => {
     videos.forEach(video => {
         const videoCard = document.createElement('div');
         videoCard.classList = `card bg-base-100 p-4 shadow-xl`;
-        if (video.authors[0].verified){
+        if (video.authors[0].verified) {
             videoCard.innerHTML = `
             <figure><img src="${video.thumbnail}" alt="Shoes" /></figure>
                         <div class="card-body">
@@ -63,7 +62,7 @@ const displayVideos = (videos) => {
             `;
             videoContainer.appendChild(videoCard);
         }
-        else{
+        else {
             videoCard.innerHTML = `
             <figure><img src="${video.thumbnail}" alt="Shoes" /></figure>
                         <div class="card-body">
@@ -95,11 +94,41 @@ const displayNoVideo = () => {
     const noVideoCard = document.createElement('div');
     // videoCard.classList = ``;
     noVideoCard.innerHTML = `
-        <p class="ml-10 "><img src="images/Icon.png"></p>
+    <div class="mt-[10%]">
+        <img class="ml-[46.5%]" src="images/Icon.png">
+        <p class="mt-[2%] text-2xl font-bold text-center">Oops!! Sorry, There is no <br>content here</p>
+    </div>
     `;
     noVideoContainer.appendChild(noVideoCard);
 
 }
+
+// const short_des = async () => {
+//     const res = await fetch("https://openapi.programming-hero.com/api/videos/category/1000")
+//     const data = await res.json();
+//     const videos = data.data;
+//     let newArray = [];
+
+    // console.log(parseFloat(video[0].others.views.slice(0, -1)))
+    // let temp = parseFloat(videos[0].others.views.slice(0, -1));
+    // for (let i = 0; i < videos.length; i++) {
+    //     for (let j = 0; j < videos.length; j++) {
+    //         if ((parseFloat(videos[j].others.views.slice(0, -1))) < (parseFloat(videos[i].others.views.slice(0, -1)))) {
+    //             var newvar = videos[j];
+    //         }
+    //     }
+    //     newArray.push(newvar);
+    // }
+    // console.log(newArray);
+
+    // videos.forEach(video => {
+    //     if ((parseFloat(video.others.views.slice(0, -1))) < temp ){
+    //         newArray.push(video)
+    //         temp = (parseFloat(video.others.views.slice(0, -1)));
+    //     }
+    // });
+    // console.log(newArray);
+// }
 
 
 const all_video = async () => {
