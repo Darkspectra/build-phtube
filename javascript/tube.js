@@ -1,14 +1,11 @@
 function new_page() {
-    window.location.href = 'http://127.0.0.1:5500/blog.html';
-}
-function home() {
-    window.location.href = 'http://127.0.0.1:5500/index.html';
+    window.location.href = 'https://eclectic-toffee-2dbb66.netlify.app/';
 }
 
 
 
 // ==============================
-const loadData = async (id) => {
+const loadData = async () => {
     const res = await fetch("https://openapi.programming-hero.com/api/videos/category/1000")
     const data = await res.json();
     const video = data.data;
@@ -35,6 +32,7 @@ const displayVideos = (videos) => {
     const videoContainer = document.getElementById('video-container');
     const noVideoContainer = document.getElementById('no_display');
     noVideoContainer.textContent = '';
+
 
     videoContainer.textContent = '';
 
@@ -103,51 +101,57 @@ const displayNoVideo = () => {
 
 }
 
-// const short_des = async () => {
-//     const res = await fetch("https://openapi.programming-hero.com/api/videos/category/1000")
-//     const data = await res.json();
-//     const videos = data.data;
-//     let newArray = [];
 
-    // console.log(parseFloat(video[0].others.views.slice(0, -1)))
-    // let temp = parseFloat(videos[0].others.views.slice(0, -1));
-    // for (let i = 0; i < videos.length; i++) {
-    //     for (let j = 0; j < videos.length; j++) {
-    //         if ((parseFloat(videos[j].others.views.slice(0, -1))) < (parseFloat(videos[i].others.views.slice(0, -1)))) {
-    //             var newvar = videos[j];
-    //         }
-    //     }
-    //     newArray.push(newvar);
-    // }
-    // console.log(newArray);
 
-    // videos.forEach(video => {
-    //     if ((parseFloat(video.others.views.slice(0, -1))) < temp ){
-    //         newArray.push(video)
-    //         temp = (parseFloat(video.others.views.slice(0, -1)));
-    //     }
-    // });
-    // console.log(newArray);
-// }
 
+const short_func = async (id) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`)
+    const data = await res.json();
+    const videos = data.data;
+    videos.sort((a, b) => parseFloat(b.others.views.slice(0, -1)) - parseFloat(a.others.views.slice(0, -1)));
+    displayVideos(videos)
+}
+
+var temp = "";
+
+const short_des = (flag) => {
+    if (temp == "1001" && flag===true){
+        short_func("1001")
+    }
+    else if(temp == "1000" && flag===true){
+        short_func("1000")
+    }
+    else if(temp == "1003" && flag===true){
+        short_func("1003")
+    }
+
+
+}
 
 const all_video = async () => {
     const res = await fetch("https://openapi.programming-hero.com/api/videos/categories")
     const data = await res.json();
     const category = data.data;
     loadData2(category[0].category_id);
+    temp = category[0].category_id
+
 }
-const music = async () => {
+const music = async (flag) => {
     const res = await fetch("https://openapi.programming-hero.com/api/videos/categories")
     const data = await res.json();
     const category = data.data;
     loadData2(category[1].category_id);
+    temp = category[1].category_id;
+
+
 }
-const comedy = async () => {
+const comedy = async (flag=false) => {
     const res = await fetch("https://openapi.programming-hero.com/api/videos/categories")
     const data = await res.json();
     const category = data.data;
     loadData2(category[2].category_id);
+    temp = category[2].category_id;
+
 }
 const drawing = async () => {
     const res = await fetch("https://openapi.programming-hero.com/api/videos/categories")
