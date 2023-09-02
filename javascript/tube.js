@@ -2,7 +2,7 @@ function new_page() {
     window.location.href = 'https://eclectic-toffee-2dbb66.netlify.app/';
 }
 
-
+var temp2 ="1000";
 
 // ==============================
 const loadData = async () => {
@@ -123,6 +123,9 @@ const short_des = (flag) => {
     }
     else if(temp == "1003" && flag===true){
         short_func("1003")
+    }
+    else if(temp2 == "1000" && flag===true){
+        short_func("1000")
     }
 
 
